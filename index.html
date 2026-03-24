@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!-- 
+    DOCTYPE - это самая первая строчка, которая говорит браузеру:
+    "Используй современный стандарт HTML, не включай древний режим совместимости"
+-->
+<html lang="ru">
+<!-- 
+    <html> - корневой элемент всей страницы
+    lang="ru" указывает, что страница на русском языке (для поисковиков)
+-->
+
+<head>
+    <!-- 
+        HEAD - служебная часть. То, что здесь написано, не видно на самой странице,
+        но это очень важно для браузера и поисковиков
+    -->
+    
+    <meta charset="UTF-8">
+    <!-- 
+        Указывает кодировку текста. Без этой строчки вместо букв будут кракозябры
+        UTF-8 содержит все русские буквы и символы
+    -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Очень важная строчка для телефонов и планшетов
+        Говорит: "Подстраивай ширину под экран устройства, не масштабируй сам"
+        Без этого на iPhone текст будет мелким-мелким
+    -->
+    
+    <title>Воспитатель года - Портфолио</title>
+    <!-- 
+        Это то, что вы видите во вкладке браузера (наверху окна)
+        Также это видит поисковик в выдаче
+    -->
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+        Подключаем внешний файл со стилями
+        rel="stylesheet" - говорит, что это таблица стилей
+        href="style.css" - путь к файлу (лежит в той же папке)
+    -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+
+    
+
+</head>
+
+<body>
+    <!-- 
+        BODY - это ТЕЛО страницы. Всё, что мы напишем здесь,
+        будет видно пользователю на экране
+    -->
+
+    <!-- ШАПКА САЙТА (МЕНЮ) -->
+    <header>
+        <!-- 
+            <header> - смысловой тег для шапки сайта
+            Можно было бы просто <div>, но поисковики любят смысловые теги
+        -->
+        <nav class="menu">
+            <!-- 
+                <nav> - тег для навигации (меню)
+                class="menu" - даем имя этому элементу, чтобы потом в CSS
+                обращаться к нему и задавать стили
+            -->
+            <ul>
+                <!-- 
+                    <ul> - маркированный список (unordered list)
+                    Внутри будут пункты меню
+                -->
+                <li><a href="index.html">Главная</a></li>
+                <!-- 
+                    <li> - элемент списка (list item)
+                    <a> - ссылка (anchor)
+                    href="index.html" - куда ведет ссылка (на главную страницу)
+                -->
+                <li><a href="#about">Обо мне</a></li>
+                <!-- 
+                    href="#about" - ссылка на ЭЛЕМЕНТ внутри этой же страницы
+                    Знак # означает "найди элемент с id="about" и прокрути к нему"
+                -->
+                <li><a href="#works">Мои работы</a></li>
+                <li><a href="#articles">Статьи</a></li>
+                <li><a href="#contact">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- РАЗДЕЛ "ОБО МНЕ" -->
+    <section id="about" class="about">
+        <!-- 
+            id="about" - УНИКАЛЬНЫЙ идентификатор (один на страницу)
+            Именно по нему происходит переход по ссылке href="#about"
+            id - как паспорт, у каждого элемента свой уникальный
+        -->
+        <div class="container">
+            <h2>Обо мне</h2>
+            <!-- 
+                <h2> - заголовок второго уровня (подзаголовок раздела)
+                Их может быть много на странице
+            -->
+            
+            <div class="about-content">
+                <!-- 
+                    Этот див будет держать в себе две колонки: фото и текст
+                    class="about-content" - для гибкости в CSS
+                -->
+                
+                <div class="about-photo">
+                    <!-- Колонка с фото -->
+                    <img src="images/photo_profile.jpg" alt="Фото воспитателя" class="profile-photo">
+                    <!-- 
+                        <img> - картинка
+                        src="images/foto.jpg" - путь к файлу (папка images, файл foto.jpg)
+                        alt="..." - альтернативный текст (если картинка не загрузилась,
+                        или для незрячих людей - читалка озвучит этот текст)
+                        class="profile-photo" - для стилизации (круглая форма и т.д.)
+                    -->
+                </div>
+                
+                <div class="about-text">
+                    <!-- Колонка с текстом -->
+                    <h3>Павленко Дарья Михайловна</h3>
+                    <!-- <h3> - заголовок третьего уровня (поменьше) -->
+                    
+                    <p class="position">Воспитатель МБДОУ №285 г. Ростова-на-Дону</p>
+                    <p class="experience">Педагогический стаж: 6 лет</p>
+                    <p class="edu">Образование: высшее</p>
+                    
+                    <p class="quote">«Гори, чтобы светить»</p>
+                    <!-- Для цитаты отдельный класс, чтобы сделать красивое оформление -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "МОИ РАБОТЫ" -->
+    <section id="works" class="works">
+        <div class="container">
+            <h2>Фотогалерея</h2>
+            
+            <div class="works-grid">
+                <!-- 
+                    works-grid - это контейнер для карточек работ
+                    В CSS мы сделаем display: grid, чтобы карточки
+                    автоматически выстроились в красивую сетку
+                -->
+                
+                <!-- Карточка работы 1 -->
+                <div class="work-item">
+                     <a href="images/work_1.jpg" data-lightbox="gallery">
+                    <img src="images/work_1.jpg" alt="Фото">
+                </a>
+                </div>
+
+                 <div class="work-item">
+                     <a href="images/work_2.jpg" data-lightbox="gallery">
+                    <img src="images/work_2.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_4.jpg" data-lightbox="gallery">
+                    <img src="images/work_4.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_5.jpg" data-lightbox="gallery">
+                    <img src="images/work_5.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_6.jpg" data-lightbox="gallery">
+                    <img src="images/work_6.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_7.jpg" data-lightbox="gallery">
+                    <img src="images/work_7.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_8.jpg" data-lightbox="gallery">
+                    <img src="images/work_8.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_9.jpg" data-lightbox="gallery">
+                    <img src="images/work_9.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_10.jpg" data-lightbox="gallery">
+                    <img src="images/work_10.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_11.jpg" data-lightbox="gallery">
+                    <img src="images/work_11.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_14.jpg" data-lightbox="gallery">
+                    <img src="images/work_14.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_15.jpg" data-lightbox="gallery">
+                    <img src="images/work_15.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_16.jpg" data-lightbox="gallery">
+                    <img src="images/work_16.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_17.jpg" data-lightbox="gallery">
+                    <img src="images/work_17.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_18.jpg" data-lightbox="gallery">
+                    <img src="images/work_18.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_19.jpg" data-lightbox="gallery">
+                    <img src="images/work_19.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_21.jpg" data-lightbox="gallery">
+                    <img src="images/work_21.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_23.jpg" data-lightbox="gallery">
+                    <img src="images/work_23.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_24.jpg" data-lightbox="gallery">
+                    <img src="images/work_24.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_27.jpg" data-lightbox="gallery">
+                    <img src="images/work_27.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_28.jpg" data-lightbox="gallery">
+                    <img src="images/work_28.jpg" alt="Фото">
+                </a>
+                </div>
+
+                  <div class="work-item">
+                     <a href="images/work_3.jpg" data-lightbox="gallery">
+                    <img src="images/work_3.jpg" alt="Фото">
+                </a>
+                </div>
+                
+                <div class="work-item">
+                     <a href="images/work_12.jpg" data-lightbox="gallery">
+                    <img src="images/work_12.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_13.jpg" data-lightbox="gallery">
+                    <img src="images/work_13.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_20.jpg" data-lightbox="gallery">
+                    <img src="images/work_20.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_22.jpg" data-lightbox="gallery">
+                    <img src="images/work_22.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_25.jpg" data-lightbox="gallery">
+                    <img src="images/work_25.jpg" alt="Фото">
+                </a>
+                </div>
+
+                <div class="work-item">
+                     <a href="images/work_26.jpg" data-lightbox="gallery">
+                    <img src="images/work_26.jpg" alt="Фото">
+                </a>
+                </div>
+
+        
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "МОИ СТАТЬИ" (ССЫЛКИ НА ДРУГИЕ СТРАНИЦЫ) -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <h2>Методические материалы</h2>
+            
+            <div class="articles-list">
+                <!-- articles-list - контейнер для списка статей -->
+                
+                <a href="article_1.html" class="article-card">
+                    <!-- 
+                        ВНИМАНИЕ! Это ссылка <a>, но мы делаем её похожей на карточку
+                        При клике на любую область этой карточки перейдем на statya1.html
+                    -->
+                    <h3>Игровые технологии в развитии речи дошкольников</h3>
+                    <p>Речевое развитие | Игровые технологии</p>
+                    <span class="read-more">Читать далее →</span>
+                    <!-- <span> - строчный элемент (в отличие от div, который блочный) -->
+                </a>
+                
+                <a href="article_2.html" class="article-card">
+                    <h3>Сотрудничество с семьей: эффективные формы взаимодействия ДОО и родителей</h3>
+                    <p>Социально-коммуникативное развитие | Работа с родителями</p>
+                    <span class="read-more">Читать далее →</span>
+                </a>
+
+                <a href="article_3.html" class="article-card">
+                    <h3>Развитие творческих способностей дошкольников через нетрадиционные техники рисования</h3>
+                    <p>Художественно-эстетическое развитие | Творчество</p>
+                    <span class="read-more">Читать далее →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "ОБРАТНАЯ СВЯЗЬ" -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Обратная связь</h2>
+            <p class="contact-description">Задайте вопрос или оставьте отзыв о моей работе</p>
+            
+            <!-- 
+                ====================================================
+                ЗДЕСЬ БУДЕТ КОД GOOGLE ФОРМЫ
+                ====================================================
+                
+                Инструкция по замене:
+                1. Создаете форму в Google Forms
+                2. Нажимаете "Отправить" -> значок "</>" (встроить HTML)
+                3. Копируете ВЕСЬ код, который даст Google
+                4. Удаляете весь div с class="form-container" (от <div до </div>)
+                5. Вставляете скопированный код Google на это место
+                
+                ВАЖНО: Код от Google уже будет содержать свои собственные стили и скрипты,
+                он должен работать сразу после вставки
+            -->
+           <div class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdp9MZOK7OFPwTzf6flmuOJfrH2RzTg86dqP5S1BJ8a5P3XYg/viewform?embedded=true" 
+            width="100%" 
+            height="830" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0">
+        Загрузка…
+    </iframe>
+</div>
+        </div>
+    </section>
+
+    <!-- ПОДВАЛ (footer) -->
+    <footer>
+        <!-- 
+            <footer> - тег для подвала сайта (нижняя часть)
+            Обычно там копирайт, год, контакты
+        -->
+        <div class="container">
+            <p>© 2026 Павленко Дарья Михайловна. Все права защищены</p>
+            <!-- 
+                &copy; - специальный код HTML для знака копирайта ©
+                Браузер превратит это в символ
+            -->
+            <p>Сайт создан для участия в конкурсе "Воспитатель года"</p>
+        </div>
+    </footer>
+</body>
+</html>
