@@ -44,8 +44,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
 
-    
-
 </head>
 
 <body>
@@ -82,8 +80,9 @@
                     href="#about" - ссылка на ЭЛЕМЕНТ внутри этой же страницы
                     Знак # означает "найди элемент с id="about" и прокрути к нему"
                 -->
-                <li><a href="#works">Мои работы</a></li>
-                <li><a href="#articles">Статьи</a></li>
+                <li><a href="#articles">Методические материалы</a></li>
+                <li><a href="#videocard">Видеовизитка</a></li> <!-- НОВЫЙ ПУНКТ МЕНЮ -->
+                <li><a href="#works">Фотогалерея</a></li>
                 <li><a href="#contact">Обратная связь</a></li>
             </ul>
         </nav>
@@ -99,10 +98,6 @@
         -->
         <div class="container">
             <h2>Обо мне</h2>
-            <!-- 
-                <h2> - заголовок второго уровня (подзаголовок раздела)
-                Их может быть много на странице
-            -->
             
             <div class="about-content">
                 <!-- 
@@ -138,6 +133,79 @@
         </div>
     </section>
 
+    <!-- РАЗДЕЛ "МОИ СТАТЬИ" (ССЫЛКИ НА ДРУГИЕ СТРАНИЦЫ) -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <h2>Методические материалы</h2>
+            
+            <div class="articles-list">
+                <!-- articles-list - контейнер для списка статей -->
+                
+                <a href="article_1.html" class="article-card">
+                    <!-- 
+                        ВНИМАНИЕ! Это ссылка <a>, но мы делаем её похожей на карточку
+                        При клике на любую область этой карточки перейдем на statya1.html
+                    -->
+                    <h3>Игровые технологии в развитии речи дошкольников</h3>
+                    <p>Речевое развитие | Игровые технологии</p>
+                    <span class="read-more">Читать далее →</span>
+                    <!-- <span> - строчный элемент (в отличие от div, который блочный) -->
+                </a>
+                
+                <a href="article_2.html" class="article-card">
+                    <h3>Сотрудничество с семьей: эффективные формы взаимодействия ДОО и родителей</h3>
+                    <p>Социально-коммуникативное развитие | Работа с родителями</p>
+                    <span class="read-more">Читать далее →</span>
+                </a>
+
+                <a href="article_3.html" class="article-card">
+                    <h3>Развитие творческих способностей дошкольников через нетрадиционные техники рисования</h3>
+                    <p>Художественно-эстетическое развитие | Творчество</p>
+                    <span class="read-more">Читать далее →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- РАЗДЕЛ "ВИДЕОВИЗИТКА" -->
+<section id="videocard" class="videocard">
+    <div class="container">
+        <h2>Видеовизитка</h2>
+        <p class="videocard-description">Короткое видео, которое расскажет обо мне и моей работе</p>
+        
+        <div class="video-wrapper">
+            <div class="video-container">
+                <!-- 
+                    ⚠️ ВАЖНО: Замените XXXXXX на ID вашего видео с Яндекс.Диска
+                    
+                    Как получить ID:
+                    1. Откройте видео на Яндекс.Диске
+                    2. Нажмите "Поделиться" → "Скопировать ссылку"
+                    3. Ссылка будет вида: https://disk.yandex.ru/i/XXXXXXXXX
+                    4. Вставьте XXXXXXXXX в ссылку ниже вместо XXXXXX
+                -->
+                <iframe 
+                    src="https://disk.yandex.ru/i/zsQhUeNDLfA25A"
+                    title="Видеовизитка Павленко Дарьи Михайловны"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            <div class="video-info">
+                <div class="video-badge">
+                    🎬 Моя педагогическая философия
+                </div>
+                <p class="video-text">
+                    В этом коротком видео я рассказываю о своем подходе к воспитанию детей, 
+                    о том, почему выбрала профессию воспитателя и какие принципы считаю 
+                    главными в работе с дошкольниками.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- РАЗДЕЛ "МОИ РАБОТЫ" -->
     <section id="works" class="works">
         <div class="container">
@@ -254,8 +322,8 @@
                 </div>
 
                 <div class="work-item">
-                     <a href="images/work_23.jpg" data-lightbox="gallery">
-                    <img src="images/work_23.jpg" alt="Фото">
+                     <a href="images/work_33.jpg" data-lightbox="gallery">
+                    <img src="images/work_33.jpg" alt="Фото">
                 </a>
                 </div>
 
@@ -276,6 +344,26 @@
                     <img src="images/work_28.jpg" alt="Фото">
                 </a>
                 </div>
+
+                 <div class="work-item">
+                     <a href="images/work_30.jpg" data-lightbox="gallery">
+                    <img src="images/work_30.jpg" alt="Фото">
+                </a>
+                </div>
+
+                  <div class="work-item">
+                     <a href="images/work_32.jpg" data-lightbox="gallery">
+                    <img src="images/work_32.jpg" alt="Фото">
+                </a>
+                </div>
+
+
+                    <div class="work-item">
+                     <a href="images/work_23.jpg" data-lightbox="gallery">
+                    <img src="images/work_23.jpg" alt="Фото">
+                </a>
+                </div>
+                  
 
                   <div class="work-item">
                      <a href="images/work_3.jpg" data-lightbox="gallery">
@@ -319,41 +407,18 @@
                 </a>
                 </div>
 
+                 <div class="work-item">
+                     <a href="images/work_29.jpg" data-lightbox="gallery">
+                    <img src="images/work_29.jpg" alt="Фото">
+                </a>
+                </div>
+
+                  <div class="work-item">
+                     <a href="images/work_31.jpg" data-lightbox="gallery">
+                    <img src="images/work_31.jpg" alt="Фото">
+                </a>
+                </div>
         
-            </div>
-        </div>
-    </section>
-
-    <!-- РАЗДЕЛ "МОИ СТАТЬИ" (ССЫЛКИ НА ДРУГИЕ СТРАНИЦЫ) -->
-    <section id="articles" class="articles">
-        <div class="container">
-            <h2>Методические материалы</h2>
-            
-            <div class="articles-list">
-                <!-- articles-list - контейнер для списка статей -->
-                
-                <a href="article_1.html" class="article-card">
-                    <!-- 
-                        ВНИМАНИЕ! Это ссылка <a>, но мы делаем её похожей на карточку
-                        При клике на любую область этой карточки перейдем на statya1.html
-                    -->
-                    <h3>Игровые технологии в развитии речи дошкольников</h3>
-                    <p>Речевое развитие | Игровые технологии</p>
-                    <span class="read-more">Читать далее →</span>
-                    <!-- <span> - строчный элемент (в отличие от div, который блочный) -->
-                </a>
-                
-                <a href="article_2.html" class="article-card">
-                    <h3>Сотрудничество с семьей: эффективные формы взаимодействия ДОО и родителей</h3>
-                    <p>Социально-коммуникативное развитие | Работа с родителями</p>
-                    <span class="read-more">Читать далее →</span>
-                </a>
-
-                <a href="article_3.html" class="article-card">
-                    <h3>Развитие творческих способностей дошкольников через нетрадиционные техники рисования</h3>
-                    <p>Художественно-эстетическое развитие | Творчество</p>
-                    <span class="read-more">Читать далее →</span>
-                </a>
             </div>
         </div>
     </section>
