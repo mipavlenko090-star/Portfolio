@@ -105,7 +105,7 @@ body {
 
     background-image: url('images/fon.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center 0%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     
@@ -121,7 +121,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.50);
+    background-color: rgba(255, 255, 255, 0.8);
     /* 
         rgba(255, 255, 255, 0.85) - белый с прозрачностью 85%
         можно менять:
@@ -525,7 +525,7 @@ header {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    height: 100%;  /* ← ДОБАВИТЬ ЭТУ СТРОЧКУ */
+   height: 100%; 
     display: flex;
     flex-direction: column;
 }
@@ -548,10 +548,12 @@ header {
 /* сама картинка */
 .work-item img {
     width: 100%;
-    height: auto;
+    height: auto;              /* ← можно изменить под ваш дизайн */
+    object-fit: cover;          /* ← убирает белые полосы */
+    object-position: center;    /* ← центрирует обрезанную область */
     display: block;
     transition: transform 0.4s ease;
-    flex-shrink: 0;  /* чтобы картинка не сжималась */
+    flex-shrink: 0;
 }
 
 /* эффект увеличения при наведении на картинку */
@@ -583,7 +585,7 @@ header {
 */
 .articles {
     padding: 80px 0;
-    background: #f9f9f9;
+   /* background: #f9f9f9; */
 }
 
 /* сетка статей */
@@ -737,6 +739,93 @@ footer p {
     }
 }
 
+/* ========== НОВЫЙ РАЗДЕЛ: ВИДЕОВИЗИТКА ========== */
+
+.videocard {
+    padding: 80px 0;
+    
+}
+
+.videocard-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* контейнер для видео */
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #1a2a3a;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* контейнер для плеера (соотношение сторон 16:9) */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+/* информация под видео */
+.video-info {
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.video-badge {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.video-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+/* адаптация для телефонов */
+@media (max-width: 768px) {
+    .videocard {
+        padding: 50px 0;
+    }
+    
+    .video-wrapper {
+        padding: 12px;
+    }
+    
+    .video-badge {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+    
+    .video-text {
+        font-size: 0.9rem;
+    }
+}
 /* 
     =========================================================================
     ПОЛЕЗНЫЕ СВОЙСТВА, КОТОРЫЕ МЫ ИСПОЛЬЗОВАЛИ
